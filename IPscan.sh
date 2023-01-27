@@ -1,6 +1,6 @@
 #!/bin/bash
 # Adapted bash script from Gus Khawaja in the Kali Linux Pen Testing Textbook
-#Ping & get DNS name from a list of IPs saved in a file
+#Ping from a list of IPs saved in a file
  
 #Prompt the user to enter a file name and its path.
 read -p "Enter the IP addresses file name / path:" FILE_PATH_NAME
@@ -14,17 +14,11 @@ function check_host(){
                 echo '------------------------------------------------'
                 if [[ -z $ping_cmd ]]
                 then
-                        printf "$IP_ADDRESS is down\n"
+                        :
                 else
-                        printf "$IP_ADDRESS is up\n"
-                        dns_name
+                        printf "$IP_ADDRESS\n"
                 fi
         fi
-}
- 
-function dns_name(){
-        dns_name=$(host $IP_ADDRESS)
-        printf "$dns_name\n"
 }
  
 #Iterate through the IP addresses inside the file
