@@ -9,5 +9,5 @@ read -e -p "Enter the port (tcp/udp):" PORT
 echo "ip,port"
 for host in $(cat $HOSTFILE); do
     timeout .1 bash -c "echo >/dev/tcp/$host/$PORT" 2>/dev/null &&
-      echo "$host,$port"
+      echo "$host,$PORT"
 done
