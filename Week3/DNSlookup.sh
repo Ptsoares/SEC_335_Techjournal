@@ -5,6 +5,7 @@
 prefix=$1
 dns=$2
 
+echo "DNS resolution for" $1
 for i in $(seq 1 254); do
     timeout .1 bash -c "echo nslookup $prefix.$i $dns" 2>/dev/null
 done
