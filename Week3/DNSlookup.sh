@@ -7,5 +7,5 @@ dns=$2
 
 echo "DNS resolution for" $1
 for i in $(seq 1 254); do
-    timeout .1 bash -c "nslookup $prefix.$i $dns" 2>/dev/null
+    timeout .1 bash -c "nslookup $prefix.$i $dns" | grep "in-addr.arpa" 2>/dev/null
 done
